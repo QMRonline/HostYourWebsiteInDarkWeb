@@ -1,0 +1,64 @@
+For these notes am using my raspberry PI 
+You can use any VM / server from the hosting service (AWS) / your old PC
+
+How to access : 
+
+Simple method use tor Browser / Brave with tor new tab opened 
+Link: http://3g2upl4pq6kufc4m.onion/  duck duck go link
+
+Why DW is called anonymous :
+
+#random three onion relay or simply routing through different node Among 7500 node actively available as recent research says 
+Then it'll choose any one of 3 introduction point that given to the website randomly, it'll form an onion circuit and pass a password phase
+With the new point of meeting relay circuit, this happens on the client side
+
+#From the server-side DW has a Distributed hash table in that all the .onion domains are stored and it's Stored with their randomly chosen introduction points 
+the first step will be the onion service descriptor verify the public key(Domain name) and give the introduction node to the client 
+The client sends the new place where the client will wait for the website files to be received with a password this server will send the data
+Through random circuit to the client once both the pass phase matches then he'll establish a connection with the site because of these many random 
+Circuit, random routing on both the server and client-side that's the reason it's not easy for you to know from where the website is hosted same 
+Applies to the site for it to know where are you from 😅
+
+Host your website on DW
+
+#Am using Raspberry Pi
+
+after installing Raspberry pi go setup the sudo account and password go to terminal
+sudo apt update /update the repo 
+sudo apt install tor / installing tot
+sudo nano /etc/tor/torrc    //"remove the "#" for hiddenservicedir and hiiddenserviceport
+save the file
+Stop and restart the service
+sudo service tor stop /command to stop 
+sudo service tor start /command to start
+sudo service tor status /command to check the status
+check for green and active
+to get the onion address
+sudo cat /var/lib/tor/hidden_service/hostname /provide you the .onion URL
+cope the onion URL 
+install Nginx
+sudo apt install nginx
+sudo service nginx start 
+sudo service nginx status
+copy-paste the website URL 
+done now ur site is live
+Additional configuration :
+sudo nano /etc/nginx.conf
+"remove the # for server_token_off and server_name_in_redirect off;"
+add under server_toen off;
+add this line port_in_redirect_off;
+and save and exit the nano
+sudo service nginx restart
+refresh and check the site
+
+To customise your DW website
+cd /var/www/html
+ls
+sudo rm index.html
+sudo nano index.html
+make some HTML codes
+sudo service nginx restart
+
+xqcjtmzbsk6pld6zygxdt4bpqbhwdweierazea2kfa2cqiqnkulht6id.onion
+
+My web site and it'll be live for sometime
